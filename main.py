@@ -59,7 +59,8 @@ def chat_cli():
         response = chat_crew.kickoff(
             inputs={
                 "query": user_input,
-                "instructions": "Get source code 'scripts/setupRuby.sh'",
+                "instructions": "",
+                # "instructions": "Get source code 'scripts/setupRuby.sh'",
             }
         )
 
