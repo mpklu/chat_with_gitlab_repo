@@ -60,7 +60,6 @@ def chat_cli():
             inputs={
                 "query": user_input,
                 "instructions": "",
-                # "instructions": "Get source code 'scripts/setupRuby.sh'",
             }
         )
 
