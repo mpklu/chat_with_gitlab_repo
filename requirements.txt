@@ -1,0 +1,5 @@
+crewai
+langchain-community
+langchain-core
+langchain_openai
+python-gitlab
