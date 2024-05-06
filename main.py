@@ -34,11 +34,14 @@ agents = GitLabAgents()
 tasks = GitLabTasks()
 
 developer_agent = agents.developer()
+fetcher_agent = agents.mr_getter()
 fetch_code_task = tasks.fetch_source_code(developer_agent)
+fetch_mr_task = tasks.fetch_merge_request(developer_agent)
 # Create a Crew with the Chat Agent and Task
 chat_crew = Crew(
-    agents=[developer_agent],
-    tasks=[fetch_code_task],
+    agents=[fetcher_agent],
+    # tasks=[fetch_code_task],
+    tasks=[fetch_mr_task],
     process=Process.sequential,  # Sequential task execution
 )
 
@@ -59,7 +62,7 @@ def chat_cli():
         response = chat_crew.kickoff(
             inputs={
                 "query": user_input,
-                "instructions": "",
+                "instructions": "",  # redundant parameter in GitLabAction? cuases error if omitted
             }
         )
 
